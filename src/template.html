@@ -9,31 +9,37 @@
     <form>
       <fieldset>
         <legend>Sign Up Form</legend>
-        <div class="input-group">
-          <label class="email-label">Email</label>
-          <input type="email" class="email-input" />
+        <div class="input-group-parent">
+          <div class="input-group">
+            <label class="email-label">Email</label>
+            <input type="email" class="email-input" />
+          </div>
+
+          <div class="input-group">
+            <label class="country-label">Country</label>
+            <input class="country-input" />
+          </div>
+
+          <div class="input-group">
+            <label class="postal-code-label">Postal Code</label>
+            <input class="postal-code-input" />
+          </div>
+
+          <div class="input-group">
+            <label class="password-label">Password</label>
+            <input class="password-input" />
+          </div>
+
+          <div class="input-group">
+            <label class="password-confirmation-label"
+              >Password Confirmation</label
+            >
+            <input class="password-confirmation-input" />
+          </div>
         </div>
 
-        <div class="input-group">
-          <label class="country-label">Country</label>
-          <input class="country-input" />
-        </div>
-
-        <div class="input-group">
-          <label class="postal-code-label">Postal Code</label>
-          <input class="postal-code-input" />
-        </div>
-
-        <div class="input-group">
-          <label class="password-label">Password</label>
-          <input class="password-input" />
-        </div>
-
-        <div class="input-group">
-          <label class="password-confirmation-label"
-            >Password Confirmation</label
-          >
-          <input class="password-confirmation-input" />
+        <div class="button-div">
+          <button class="submit-button">Submit</button>
         </div>
       </fieldset>
     </form>

@@ -3,6 +3,9 @@ body {
 }
 
 fieldset {
+}
+
+.input-group-parent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -11,4 +14,9 @@ fieldset {
   display: flex;
   flex-direction: column;
   padding: 5px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
 }
