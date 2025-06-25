@@ -2,6 +2,7 @@
 const formCreate = document.createElement("form");
 const fieldSetCreate = document.createElement("fieldset");
 const legendCreate = document.createElement("legend");
+const inputCreate = document.createElement("input");
 const divCreate = document.createElement("div");
 const buttonCreate = document.createElement("button");
 
@@ -21,6 +22,20 @@ function createLegend(fieldset) {
   let cloneLegend = legendCreate.cloneNode(true);
   fieldset.appendChild(cloneLegend);
   return { cloneLegend };
+}
+
+function createInput(div, type, className, requiredOrNot) {
+  let cloneInput = inputCreate.cloneNode(true);
+  cloneInput.classList.add(className);
+  div.appendChild(cloneInput);
+  cloneInput.type = type;
+
+  if (requiredOrNot === true) {
+    cloneInput.required = true;
+  } else if (requiredOrNot === false) {
+    cloneInput.required = false;
+  }
+  return { cloneInput };
 }
 
 function createDivSection(parentDiv, className) {
