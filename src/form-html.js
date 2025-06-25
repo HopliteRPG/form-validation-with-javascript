@@ -1,4 +1,6 @@
+export { createSignUpForm };
 //Declaring HTML Variables
+let body = document.querySelector("body");
 const formCreate = document.createElement("form");
 const fieldSetCreate = document.createElement("fieldset");
 const legendCreate = document.createElement("legend");
@@ -13,29 +15,32 @@ function createForm(parentDiv) {
 }
 
 function createFieldSet(form) {
-  let cloneFieldSet = fieldSetCreate.cloneNode(true);
-  form.appendChild(cloneFieldSet);
-  return { cloneFieldSet };
+  let cloneFieldSetCreate = fieldSetCreate.cloneNode(true);
+
+  form.appendChild(cloneFieldSetCreate);
+  return { cloneFieldSetCreate };
 }
 
-function createLegend(fieldset) {
-  let cloneLegend = legendCreate.cloneNode(true);
-  fieldset.appendChild(cloneLegend);
-  return { cloneLegend };
+function createLegend(fieldset, text) {
+  let cloneLegendCreate = legendCreate.cloneNode(true);
+  cloneLegendCreate.textContent = text;
+  console.log(cloneLegendCreate);
+  fieldset.appendChild(cloneLegendCreate);
+  return { cloneLegendCreate };
 }
 
 function createInput(div, type, className, requiredOrNot) {
-  let cloneInput = inputCreate.cloneNode(true);
-  cloneInput.classList.add(className);
-  div.appendChild(cloneInput);
-  cloneInput.type = type;
+  let cloneInputCreate = inputCreate.cloneNode(true);
+  cloneInputCreate.classList.add(className);
+  div.appendChild(cloneInputCreate);
+  cloneInputCreate.type = type;
 
   if (requiredOrNot === true) {
-    cloneInput.required = true;
+    cloneInputCreate.required = true;
   } else if (requiredOrNot === false) {
-    cloneInput.required = false;
+    cloneInputCreate.required = false;
   }
-  return { cloneInput };
+  return { cloneInputCreate };
 }
 
 function createDivSection(parentDiv, className) {
@@ -51,4 +56,11 @@ function createButton(div, buttonText, buttonClass) {
   cloneButtonCreate.classList.add(buttonClass);
   div.appendChild(cloneButtonCreate);
   return { cloneButtonCreate };
+}
+
+//Creating the form
+function createSignUpForm() {
+  let form = createForm(body);
+  let fieldset = createFieldSet(form.cloneFormCreate);
+  createLegend(fieldset.cloneFieldSetCreate, "Sign Up Form");
 }
