@@ -4,6 +4,7 @@ let body = document.querySelector("body");
 const formCreate = document.createElement("form");
 const fieldSetCreate = document.createElement("fieldset");
 const legendCreate = document.createElement("legend");
+const labelCreate = document.createElement("label");
 const inputCreate = document.createElement("input");
 const divCreate = document.createElement("div");
 const buttonCreate = document.createElement("button");
@@ -29,11 +30,20 @@ function createLegend(fieldset, text) {
   return { cloneLegendCreate };
 }
 
-function createInput(div, type, className, requiredOrNot) {
+function createLabel(div, className, text) {
+  let cloneLabelCreate = labelCreate.cloneNode(true);
+  cloneLabelCreate.classList.add(className);
+  cloneLabelCreate.textContent = text;
+  div.appendChild(cloneLabelCreate);
+  return { cloneLabelCreate };
+}
+
+function createInput(div, type, name, requiredOrNot) {
   let cloneInputCreate = inputCreate.cloneNode(true);
-  cloneInputCreate.classList.add(className);
+  cloneInputCreate.classList.add(name);
   div.appendChild(cloneInputCreate);
   cloneInputCreate.type = type;
+  cloneInputCreate.setAttribute("name", name);
 
   if (requiredOrNot === true) {
     cloneInputCreate.required = true;
@@ -63,4 +73,7 @@ function createSignUpForm() {
   let form = createForm(body);
   let fieldset = createFieldSet(form.cloneFormCreate);
   createLegend(fieldset.cloneFieldSetCreate, "Sign Up Form");
+  let emailDiv = createDivSection(fieldset.cloneFieldSetCreate, "input-group");
+  createLabel(emailDiv.cloneDivCreate, "email-label", "Email");
+  createInput(emailDiv.cloneDivCreate, "email", "email-input", true);
 }
