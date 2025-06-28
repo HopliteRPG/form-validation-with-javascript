@@ -104,4 +104,27 @@ function createSignUpForm() {
     "postal-code-input",
     true,
   );
+
+  let passwordDiv = createDivSection(
+    inputGroupParent.cloneDivCreate,
+    "input-group",
+  );
+  createLabel(passwordDiv.cloneDivCreate, "password-label", "Password");
+  createInput(passwordDiv.cloneDivCreate, "password", "password-input", true);
+
+  let passwordConfirmDiv = createDivSection(
+    inputGroupParent.cloneDivCreate,
+    "input-group",
+  );
+  createLabel(
+    passwordConfirmDiv.cloneDivCreate,
+    "password-confirm-label",
+    "Confirm Password",
+  );
+  createInput(
+    passwordConfirmDiv.cloneDivCreate,
+    "password",
+    "password-confirm-input",
+    true,
+  );
 }
