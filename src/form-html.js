@@ -73,7 +73,35 @@ function createSignUpForm() {
   let form = createForm(body);
   let fieldset = createFieldSet(form.cloneFormCreate);
   createLegend(fieldset.cloneFieldSetCreate, "Sign Up Form");
-  let emailDiv = createDivSection(fieldset.cloneFieldSetCreate, "input-group");
+
+  let inputGroupParent = createDivSection(
+    fieldset.cloneFieldSetCreate,
+    "input-group-parent",
+  );
+
+  let emailDiv = createDivSection(
+    inputGroupParent.cloneDivCreate,
+    "input-group",
+  );
   createLabel(emailDiv.cloneDivCreate, "email-label", "Email");
   createInput(emailDiv.cloneDivCreate, "email", "email-input", true);
+
+  let countryDiv = createDivSection(
+    inputGroupParent.cloneDivCreate,
+    "input-group",
+  );
+  createLabel(countryDiv.cloneDivCreate, "country-label", "Country");
+  createInput(countryDiv.cloneDivCreate, "text", "country-input", true);
+
+  let postalCodeDiv = createDivSection(
+    inputGroupParent.cloneDivCreate,
+    "input-group",
+  );
+  createLabel(postalCodeDiv.cloneDivCreate, "postal-code-label", "Postal Code");
+  createInput(
+    postalCodeDiv.cloneDivCreate,
+    "number",
+    "postal-code-input",
+    true,
+  );
 }
