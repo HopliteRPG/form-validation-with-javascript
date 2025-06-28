@@ -127,4 +127,7 @@ function createSignUpForm() {
     "password-confirm-input",
     true,
   );
+
+  let buttonDiv = createDivSection(fieldset.cloneFieldSetCreate, "button-div");
+  createButton(buttonDiv.cloneDivCreate, "Submit", "submit-button");
 }
