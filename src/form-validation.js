@@ -24,17 +24,18 @@ function emailInputValidation() {
 
 function postalCodeInputValidation() {
   let postalCodeInput = document.querySelector(".postal-code-input");
-  postalCodeInput.setAttribute("max", "99999");
+  let regExp = /^\d{5}(-\d{4})?$/;
 
-  if (postalCodeInput.validity.rangeOverflow) {
-    postalCodeInput.setCustomValidity("I am expecting an email address!");
-  } else {
-    postalCodeInput.setCustomValidity("");
-  }
+  postalCodeInput.addEventListener("input", (event) => {
+    if (regExp.test(postalCodeInput.value)) {
+      postalCodeInput.setCustomValidity("");
+    } else {
+      postalCodeInput.setCustomValidity("Not Valid Zip Code");
+    }
+  });
 }
 
 function formValidation() {
-  let formVar = document.querySelector("form");
   emailInputValidation();
   postalCodeInputValidation();
 }

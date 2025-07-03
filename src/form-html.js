@@ -98,12 +98,7 @@ function createSignUpForm() {
     "input-group",
   );
   createLabel(postalCodeDiv.cloneDivCreate, "postal-code-label", "Postal Code");
-  createInput(
-    postalCodeDiv.cloneDivCreate,
-    "number",
-    "postal-code-input",
-    true,
-  );
+  createInput(postalCodeDiv.cloneDivCreate, "text", "postal-code-input", true);
 
   let passwordDiv = createDivSection(
     inputGroupParent.cloneDivCreate,
