@@ -35,7 +35,34 @@ function postalCodeInputValidation() {
   });
 }
 
+function passwordInputValidation() {
+  let passwordInput = document.querySelector(".password-input");
+  let passwordConfirmInput = document.querySelector(".password-confirm-input");
+
+  if (passwordInput.value == passwordConfirmInput.value) {
+    alert("matching");
+    passwordInput.setCustomValidity("");
+    passwordConfirmInput.setCustomValidity("");
+  } else {
+    alert("not matching");
+    passwordInput.setCustomValidity("Not matching");
+    passwordConfirmInput.setCustomValidity("Not matching");
+  }
+}
+
+function formSubmit() {
+  const form = document.querySelector("form");
+  console.log(form);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("Form submitted");
+    // const formData = new FormData(form);
+  });
+}
+
 function formValidation() {
   emailInputValidation();
   postalCodeInputValidation();
+  passwordInputValidation();
+  formSubmit();
 }
