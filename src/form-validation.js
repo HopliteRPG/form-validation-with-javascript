@@ -55,7 +55,9 @@ function formSubmit() {
   console.log(form);
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    passwordInputValidation();
     console.log("Form submitted");
+
     // const formData = new FormData(form);
   });
 }
@@ -63,6 +65,5 @@ function formSubmit() {
 function formValidation() {
   emailInputValidation();
   postalCodeInputValidation();
-  passwordInputValidation();
   formSubmit();
 }
