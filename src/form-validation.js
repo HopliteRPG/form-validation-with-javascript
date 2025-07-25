@@ -47,6 +47,8 @@ function passwordInputValidation() {
     alert("not matching");
     passwordInput.setCustomValidity("Not matching");
     passwordConfirmInput.setCustomValidity("Not matching");
+    passwordInput.value = "";
+    passwordConfirmInput.value = "";
   }
 }
 
