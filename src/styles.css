@@ -1,3 +1,14 @@
 /* styles.css */
 body {
 }
+
+.formContentDiv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
