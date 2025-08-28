@@ -12,3 +12,20 @@ body {
   flex-direction: column;
   padding: 5px;
 }
+
+.formParentDiv {
+  outline: 1px black solid;
+}
+
+.signUpFormP {
+  margin: 0;
+  font-weight: bold;
+}
+
+input:valid {
+  border: 1px green solid;
+}
+
+input:invalid {
+  border: 1px red solid;
+}
