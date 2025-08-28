@@ -3,6 +3,7 @@ const form = document.querySelector("form");
 
 function fullFormValidation() {
   emailValidation();
+  zipcodeValidation();
   passwordValidation();
 }
 
@@ -14,6 +15,20 @@ function emailValidation() {
       emailInput.setCustomValidity("Submit a proper email address");
     } else {
       emailInput.setCustomValidity("");
+    }
+  });
+}
+
+function zipcodeValidation() {
+  const postalCodeInput = document.querySelector(".postal-code-input");
+
+  const postalCodeRegExp = /^\d{5}(?:[-\s]\d{4})?$/;
+
+  postalCodeInput.addEventListener("input", (event) => {
+    if (postalCodeRegExp.test(postalCodeInput.value)) {
+      postalCodeInput.setCustomValidity("");
+    } else {
+      postalCodeInput.setCustomValidity("Not Valid Zip Code");
     }
   });
 }
