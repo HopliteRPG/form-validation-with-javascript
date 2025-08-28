@@ -1,5 +1,5 @@
-import "./styles.css";
 import { createSignUpForm } from "./form-html";
-import { formValidation } from "./form-validation";
+import { fullFormValidation } from "./form-validation";
+import "./styles.css";
 createSignUpForm();
-formValidation();
+fullFormValidation();

@@ -2,10 +2,7 @@
 body {
 }
 
-fieldset {
-}
-
-.input-group-parent {
+.formContentDiv {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -16,7 +13,23 @@ fieldset {
   padding: 5px;
 }
 
-.button-div {
-  display: flex;
-  justify-content: center;
+.formParentDiv {
+  outline: 1px black solid;
+}
+
+.signUpFormP {
+  margin: 0;
+  font-weight: bold;
+}
+
+input:valid {
+  border: 1px green solid;
+}
+
+input:invalid {
+  border: 1px red solid;
+}
+
+.submit-button {
+  cursor: pointer;
 }

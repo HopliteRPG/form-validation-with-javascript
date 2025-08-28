@@ -1,33 +1,31 @@
-export { formValidation };
+export { fullFormValidation };
+const form = document.querySelector("form");
 
-function emailInputValidation() {
-  // alert("email ran");
-  let emailInput = document.querySelector(".email-input");
+function fullFormValidation() {
+  emailValidation();
+  zipcodeValidation();
+  passwordValidation();
+}
 
-  // if (emailInput.validity.typeMismatch) {
-  //   alert("type mismatch");
-  //   emailInput.setCustomValidity("I am expecting an email address!");
-  //   emailInput.reportValidity();
-  //   return;
-  // } else {
-  //   emailInput.setCustomValidity("");
-  // }
+function emailValidation() {
+  const emailInput = document.querySelector(".email-input");
 
   emailInput.addEventListener("input", (event) => {
     if (emailInput.validity.typeMismatch) {
-      emailInput.setCustomValidity("Submit a proper email adress");
+      emailInput.setCustomValidity("Submit a proper email address");
     } else {
       emailInput.setCustomValidity("");
     }
   });
 }
 
-function postalCodeInputValidation() {
-  let postalCodeInput = document.querySelector(".postal-code-input");
-  let regExp = /^\d{5}(-\d{4})?$/;
+function zipcodeValidation() {
+  const postalCodeInput = document.querySelector(".postal-code-input");
+
+  const postalCodeRegExp = /^\d{5}(?:[-\s]\d{4})?$/;
 
   postalCodeInput.addEventListener("input", (event) => {
-    if (regExp.test(postalCodeInput.value)) {
+    if (postalCodeRegExp.test(postalCodeInput.value)) {
       postalCodeInput.setCustomValidity("");
     } else {
       postalCodeInput.setCustomValidity("Not Valid Zip Code");
@@ -35,37 +33,21 @@ function postalCodeInputValidation() {
   });
 }
 
-function passwordInputValidation() {
-  let passwordInput = document.querySelector(".password-input");
-  let passwordConfirmInput = document.querySelector(".password-confirm-input");
-
-  if (passwordInput.value == passwordConfirmInput.value) {
-    alert("matching");
-    passwordInput.setCustomValidity("");
-    passwordConfirmInput.setCustomValidity("");
-  } else {
-    alert("not matching");
-    passwordInput.setCustomValidity("Not matching");
-    passwordConfirmInput.setCustomValidity("Not matching");
-    passwordInput.value = "";
-    passwordConfirmInput.value = "";
-  }
-}
-
-function formSubmit() {
-  const form = document.querySelector("form");
-  console.log(form);
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    passwordInputValidation();
-    console.log("Form submitted");
-
-    // const formData = new FormData(form);
+function passwordValidation() {
+  const passwordInput = document.querySelector(".password-input");
+  const passwordConfInput = document.querySelector(".password-confirm-input");
+  passwordInput.addEventListener("input", (event) => {
+    if (passwordInput.value !== passwordConfInput.value) {
+      passwordInput.setCustomValidity("Passwords do not match!");
+    } else {
+      passwordInput.setCustomValidity("");
+    }
   });
-}
-
-function formValidation() {
-  emailInputValidation();
-  postalCodeInputValidation();
-  formSubmit();
+  passwordConfInput.addEventListener("input", (event) => {
+    if (passwordInput.value !== passwordConfInput.value) {
+      passwordInput.setCustomValidity("Passwords do not match!");
+    } else {
+      passwordInput.setCustomValidity("");
+    }
+  });
 }

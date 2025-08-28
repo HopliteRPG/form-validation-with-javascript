@@ -1,6 +1,5 @@
 export { createSignUpForm };
-//Declaring HTML Variables
-let body = document.querySelector("body");
+const body = document.querySelector("body");
 const formCreate = document.createElement("form");
 const fieldSetCreate = document.createElement("fieldset");
 const legendCreate = document.createElement("legend");
@@ -8,6 +7,7 @@ const labelCreate = document.createElement("label");
 const inputCreate = document.createElement("input");
 const divCreate = document.createElement("div");
 const buttonCreate = document.createElement("button");
+const pCreate = document.createElement("p");
 
 function createForm(parentDiv) {
   let cloneFormCreate = formCreate.cloneNode(true);
@@ -68,47 +68,53 @@ function createButton(div, buttonText, buttonClass) {
   return { cloneButtonCreate };
 }
 
-//Creating the form
+function createP(div, pText, pClass) {
+  let clonePCreate = pCreate.cloneNode(true);
+  clonePCreate.innerText = pText;
+  clonePCreate.classList.add(pClass);
+  div.appendChild(clonePCreate);
+}
+
 function createSignUpForm() {
   let form = createForm(body);
-  let fieldset = createFieldSet(form.cloneFormCreate);
-  createLegend(fieldset.cloneFieldSetCreate, "Sign Up Form");
-
-  let inputGroupParent = createDivSection(
-    fieldset.cloneFieldSetCreate,
-    "input-group-parent",
+  let formParentDiv = createDivSection(form.cloneFormCreate, "formParentDiv");
+  let signUpFormP = createP(
+    formParentDiv.cloneDivCreate,
+    "Sign Up Form",
+    "signUpFormP",
+  );
+  let formContentDiv = createDivSection(
+    formParentDiv.cloneDivCreate,
+    "formContentDiv",
   );
 
-  let emailDiv = createDivSection(
-    inputGroupParent.cloneDivCreate,
-    "input-group",
-  );
+  let emailDiv = createDivSection(formContentDiv.cloneDivCreate, "input-group");
   createLabel(emailDiv.cloneDivCreate, "email-label", "Email");
   createInput(emailDiv.cloneDivCreate, "email", "email-input", true);
 
   let countryDiv = createDivSection(
-    inputGroupParent.cloneDivCreate,
+    formContentDiv.cloneDivCreate,
     "input-group",
   );
   createLabel(countryDiv.cloneDivCreate, "country-label", "Country");
   createInput(countryDiv.cloneDivCreate, "text", "country-input", true);
 
   let postalCodeDiv = createDivSection(
-    inputGroupParent.cloneDivCreate,
+    formContentDiv.cloneDivCreate,
     "input-group",
   );
   createLabel(postalCodeDiv.cloneDivCreate, "postal-code-label", "Postal Code");
   createInput(postalCodeDiv.cloneDivCreate, "text", "postal-code-input", true);
 
   let passwordDiv = createDivSection(
-    inputGroupParent.cloneDivCreate,
+    formContentDiv.cloneDivCreate,
     "input-group",
   );
   createLabel(passwordDiv.cloneDivCreate, "password-label", "Password");
   createInput(passwordDiv.cloneDivCreate, "password", "password-input", true);
 
   let passwordConfirmDiv = createDivSection(
-    inputGroupParent.cloneDivCreate,
+    formContentDiv.cloneDivCreate,
     "input-group",
   );
   createLabel(
@@ -123,6 +129,6 @@ function createSignUpForm() {
     true,
   );
 
-  let buttonDiv = createDivSection(fieldset.cloneFieldSetCreate, "button-div");
+  let buttonDiv = createDivSection(formParentDiv.cloneDivCreate, "button-div");
   createButton(buttonDiv.cloneDivCreate, "Submit", "submit-button");
 }
